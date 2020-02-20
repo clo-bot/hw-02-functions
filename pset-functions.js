@@ -31,6 +31,22 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+function scores(playerCardScore, dealerCardScore){
+   if (playerCardScore > 21 && dealerCardScore > 21){
+    return "0"
+  } else if (playerCardScore <= 21 || dealerCardScore > 21){
+    return(playerCardScore)
+  } else if (playerCardScore >  21 || dealerCardScore <= 21){
+    return(dealerCardScore)
+  } else if (playerCardScore <= 21 && dealerCardScore <= 21){
+    return Math.max(playerCardScore, dealerCardScore)
+  } else {
+    return(playerCardScore)
+  }
+}
+const gameResult = scores(8, 21)
+console.log(gameResult)
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -75,6 +91,64 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 2:')
 
 // Add your code below this line
+// const score  = {
+//     e:1, a:1, i:1, o:1, u:1, l:1, n:1, r:1, s:1, t:1,
+//     d:2, g:2,
+//     b:3, c:3, m:3, p:3,
+//     f:4, h:4, v:4, w:4, y:4,
+//     k:5,
+//     j:8, x:8,
+//     q:10, z:10
+// }
+//
+// function scrabbleScore(word) {
+//   let total = 0
+//   for (i = 0; i <= word.length; i++) {
+//     total = total + score[word[i]].values
+//   }
+//   return total
+// }
+//
+// console.log(scrabbleScore("cabbage"))
+
+const scrabbleWords  = {
+e: 1,
+a: 1,
+i: 1,
+o: 1,
+u: 1,
+l: 1,
+n: 1,
+r: 1,
+s: 1,
+t: 1,
+d: 2,
+g: 2,
+b: 3,
+c: 3,
+m: 3,
+p: 3,
+f: 4,
+h: 4,
+v: 4,
+w: 4,
+y: 4,
+k: 5,
+j: 8,
+x: 8,
+q: 10,
+z: 10
+}
+function scrabbleScore(word) {
+let score = 0;
+for (let i = 0; i < word.length; i++) {
+    score = score + scrabbleWords[word[i]]
+  }
+return score
+}
+console.log(scrabbleScore("cabbage"))
+console.log(scrabbleScore("javascript"))
+console.log(scrabbleScore("function"))
 
 // Add your code above this line
 
@@ -114,6 +188,13 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 3:')
 
 // Add your code below this line
+function isPalindrome(word){
+  return word === word.split("").reverse().join("")
+}
+console.log(isPalindrome("noon"))
+console.log(isPalindrome("racecar"))
+console.log(isPalindrome("moon"))
+console.log(isPalindrome("run"))
 
 // Add your code above this line
 
@@ -147,7 +228,20 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 4:')
 
 // Add your code below this line
-
+function doubleLetters(word){
+  for(i = 0; i <= word.length; i++) {
+        for(var j = i+1; j <= word.length; j++) {
+            if(word[j] == word[i]) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+console.log(doubleLetters("loop"))
+console.log(doubleLetters("rune"))
+console.log(doubleLetters("rune"))
+console.log(doubleLetters("apple"))
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -207,6 +301,34 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 5 - bonus:')
 
 // Add your code below this line
+
+function wordCount(phrase) {
+  const words = phrase.split(' ')
+  const wordCount = {}
+
+words.forEach((word) => {
+  if (wordCount[word] === undefined) {
+      wordCount[word] = 1
+    } else {
+      wordCount[word] = wordCount[word] + 1
+    }
+  })
+
+  return wordCount
+}
+
+console.log(wordCount("olly olly in come free"))
+console.log(wordCount("Baby shark, doo doo doo doo doo doo"))
+console.log(wordCount("Humpty Dumpty sat on a wall Humpty Dumpty had a great fall"))
+
+
+// Add your code above this line
+
+/** added for formatting purposes **/
+console.log('')
+console.log('-----------------')
+
+
 
 // Add your code above this line
 
